@@ -17,3 +17,16 @@ class Solution:
                 slow += 1
             fast += 1
         return slow
+
+    def removeDuplicates(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n < 2:
+            return n
+        slow = 0
+        fast = 1
+        while fast < n:
+            if nums[fast] != nums[slow]:
+                nums[slow + 1] = nums[fast]
+                slow += 1
+            fast += 1
+        return slow + 1
